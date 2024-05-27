@@ -1,5 +1,6 @@
 ---
 filepath:
   proj_dir: /data2/malayp/airshed/
-  data_dir: /data2/malayp/data/airshed/
-  loc_fp: /data2/malayp/data/bihar_locations.txt
+  data_dir: /data2/malayp/data/
+  loc_fp: bihar_locations.txt
+  bihar_pkl_fp: bihar_meteo_era5_may_jan_iterative_imputed.pkl
