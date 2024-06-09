@@ -4,3 +4,25 @@ filepath:
   data_dir: /data2/malayp/data/
   loc_fp: bihar_locations.txt
   bihar_pkl_fp: bihar_meteo_era5_may_jan_iterative_imputed.pkl
+  bihar_fp: bihar_june_apr.csv
+
+train:
+  num_epochs: 100
+  lr: 0.001
+  batch_size: 64
+
+JJAS:
+  start_date: [2023, 6, 1]
+  end_date: [2023, 10, 1]
+
+"ON":
+  start_date: [2023, 10, 1]
+  end_date: [2023, 12, 1]
+
+DJF:
+  start_date: [2023, 12, 1]
+  end_date: [2024, 3, 1]
+
+MA:
+  start_date: [2024, 3, 1]
+  end_date: [2024, 5, 1]
