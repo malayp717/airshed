@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import os
 import yaml
+import torch
 
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 with open(f'{curr_dir}/config.yaml', 'r') as f:
@@ -21,3 +22,22 @@ def process_df(df_fp, start_date, end_date):
     df['ventilation_coeff'] = (df['ventilation_coeff'] - df['ventilation_coeff'].mean()) / df['ventilation_coeff'].std()
 
     return df
+
+def generate_embeddings(model, loader):
+    model.eval()
+
+    locs, emb = [], []
+
+    for data in loader:
+        loc, X, _ = data
+        bs = X.size(0)
+        loc = loc.cpu().detach().numpy()
+
+        _, h = model(X)
+        h = torch.permute(h, (1,0,2))
+        h = h.cpu().detach().numpy().reshape(bs, -1)
+
+        locs.extend(loc)
+        emb.extend(h)
+
+    return locs, emb

@@ -7,9 +7,9 @@ filepath:
   bihar_fp: bihar_june_apr.csv
 
 train:
-  num_epochs: 100
+  num_epochs: 200
   lr: 0.001
-  batch_size: 64
+  batch_size: 128
 
 JJAS:
   start_date: [2023, 6, 1]
